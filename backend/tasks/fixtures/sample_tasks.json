@@ -1,0 +1,50 @@
+[
+  {
+    "model": "tasks.task",
+    "pk": 1,
+    "fields": {
+      "title": "Plan Monday priorities",
+      "description": "Choose the top three outcomes for the day.",
+      "due_date": "2026-06-15",
+      "priority": "High",
+      "status": "Pending",
+      "created_at": "2026-06-14T09:00:00Z"
+    }
+  },
+  {
+    "model": "tasks.task",
+    "pk": 2,
+    "fields": {
+      "title": "Send project update",
+      "description": "Share a concise status note with stakeholders.",
+      "due_date": "2026-06-16",
+      "priority": "Medium",
+      "status": "Pending",
+      "created_at": "2026-06-14T09:15:00Z"
+    }
+  },
+  {
+    "model": "tasks.task",
+    "pk": 3,
+    "fields": {
+      "title": "Review completed tasks",
+      "description": "Check yesterday's completed work and archive notes.",
+      "due_date": "2026-06-14",
+      "priority": "Low",
+      "status": "Completed",
+      "created_at": "2026-06-14T09:30:00Z"
+    }
+  },
+  {
+    "model": "tasks.task",
+    "pk": 4,
+    "fields": {
+      "title": "Prepare sprint checklist",
+      "description": "Confirm owners, due dates, and acceptance criteria.",
+      "due_date": "2026-06-19",
+      "priority": "High",
+      "status": "Pending",
+      "created_at": "2026-06-14T09:45:00Z"
+    }
+  }
+]
