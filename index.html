@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taskify</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+    <div class="app-shell">
+        <header class="app-header">
+            <div class="brand-block">
+                <h1>Taskify</h1>
+                <div class="header-metrics" aria-label="Task summary">
+                    <span><strong id="metric-total">0</strong> total</span>
+                    <span><strong id="metric-pending">0</strong> pending</span>
+                    <span><strong id="metric-completed">0</strong> completed</span>
+                </div>
+            </div>
+            <button id="toggle-theme" class="icon-button theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+                <span aria-hidden="true">DM</span>
+            </button>
+        </header>
+
+        <main>
+            <section class="task-form-panel">
+                <div class="panel-heading">
+                    <h2 id="form-title">New task</h2>
+                </div>
+                <form id="task-form" novalidate>
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="title" placeholder="Task title" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" rows="4" placeholder="Task details"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="due_date">Due date</label>
+                            <input type="date" id="due_date" name="due_date" />
+                        </div>
+                        <div class="form-group">
+                            <label for="priority">Priority</label>
+                            <select id="priority" name="priority" required>
+                                <option value="Medium">Medium</option>
+                                <option value="Low">Low</option>
+                                <option value="High">High</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group status-group">
+                            <label>Status</label>
+                            <div class="status-options">
+                                <label><input type="radio" name="status" value="Pending" checked /> Pending</label>
+                                <label><input type="radio" name="status" value="Completed" /> Completed</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" id="submit-btn" class="btn btn-primary">
+                            <span aria-hidden="true">+</span>
+                            Save task
+                        </button>
+                        <button type="button" id="cancel-edit" class="btn btn-secondary hidden">Cancel edit</button>
+                    </div>
+                    <div id="form-error" class="form-error hidden" role="alert"></div>
+                </form>
+            </section>
+
+            <section class="task-list-panel">
+                <div class="panel-heading panel-heading-row">
+                    <h2>Task dashboard</h2>
+                    <div class="filters">
+                        <input id="search-input" type="search" placeholder="Search tasks..." />
+                        <select id="filter-status">
+                            <option value="all">All status</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                        <select id="filter-priority">
+                            <option value="all">All priority</option>
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                        <select id="sort-tasks">
+                            <option value="createdAt-desc">Newest</option>
+                            <option value="createdAt-asc">Oldest</option>
+                            <option value="dueDate-asc">Due soon</option>
+                            <option value="dueDate-desc">Due latest</option>
+                            <option value="priority-desc">High priority</option>
+                            <option value="title-asc">Title A-Z</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="task-count" class="task-count"></div>
+                <div id="task-list" class="task-list" aria-live="polite"></div>
+            </section>
+        </main>
+    </div>
+    <script src="/static/app.js"></script>
+</body>
+</html>
